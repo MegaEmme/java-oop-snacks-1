@@ -35,10 +35,28 @@ public class ContoBancario {
     // divido setSaldo in deposito e prelievo
 
     public void deposito(BigDecimal importo) {
-        this.saldo = this.saldo.add(importo);
+        if (importo.compareTo(BigDecimal.ZERO) == 1) {
+            this.saldo = this.saldo.add(importo);
+        }
     }
 
+    // importo.compareTo(BigDecimal.ZERO) confronta il valore di importo con zero.
+    // Il metodo compareTo restituisce:
+    // -1 se importo è minore di zero,
+    // 0 se importo è uguale a zero,
+    // 1 se importo è maggiore di zero.
+    // Quindi, la condizione == 1 significa che il codice dentro l'if viene eseguito
+    // solo se l'importo è maggiore di zero (cioè, solo se stai depositando una
+    // somma positiva). In questo modo, si evita di depositare importi nulli o
+    // negativi.
+
     public void prelievo(BigDecimal importo) {
-        this.saldo = this.saldo.subtract((importo));
+        if (importo.compareTo(BigDecimal.ZERO) == 1 && this.saldo.compareTo(importo) == 1) {
+            this.saldo = this.saldo.subtract((importo));
+        }
     }
+
+    // idem con ulteriore condizione che il saldo sia maggiore o al massimo uguale
+    // alla somma da ritirare
+    // cosi da non poter andare in negativo
 }
