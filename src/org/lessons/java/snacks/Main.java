@@ -8,8 +8,13 @@ public class Main {
 
         // snack 1
 
-        // Studente studenteUno = new Studente("Michelangelo", "Musco", 32);
+        Studente studenteUno = new Studente("Michelangelo", "Musco", 32);
+        Studente studenteDue = new Studente("Giulia", "Rossi", 25);
+        Studente studenteTre = new Studente("Luca", "Bianchi", 28);
+        Studente studenteQuattro = new Studente("Sara", "Verdi", 22);
+
         // System.out.println(studenteUno.getStudente());
+        // System.out.println(studenteQuattro.getStudente());
 
         // snack 2
 
@@ -27,6 +32,20 @@ public class Main {
         // RoundingMode.HALF_UP) + " Euro");
 
         // snack 3
+
+        RegistroStudenti registroStudenti = new RegistroStudenti();
+
+        System.out.println(registroStudenti);
+
+        registroStudenti.newStudent(studenteUno);
+        registroStudenti.newStudent(studenteDue);
+
+        System.out.println(registroStudenti.toString());
+
+        registroStudenti.newStudent(studenteTre);
+        registroStudenti.newStudent(studenteQuattro);
+
+        System.out.println(registroStudenti.toString());
     }
 
 }
